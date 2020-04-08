@@ -26,7 +26,10 @@ COPY srs-ngb/trunk/src/bravo_popover /usr/local/srs/objs/nginx/html/console/js/b
 ############################################################
 # dist
 ############################################################
-FROM centos/python-36-centos7 AS dist
+FROM centos:8 AS dist
+
+RUN dnf -y install python3
+
 # RTMP/1935, API/1985, HTTP/8080
 EXPOSE 1935 1985 8080
 # FFMPEG 4.1
